@@ -18,6 +18,7 @@ if [ "$mode" = link ]; then
   ln -sfn "$here/claude-auth.zsh" "$target"
   echo "symlinked: $target -> $here/claude-auth.zsh"
 else
+  rm -f "$target"   # may be a symlink left by --link
   cp "$here/claude-auth.zsh" "$target"
   echo "copied: $target"
 fi
